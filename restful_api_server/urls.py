@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
-from addresses.views import address_list, address
+from addresses.views import address_list, address, login
 from django.conf.urls import url, include
 
 
@@ -28,5 +28,6 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     path('addresses/', address_list),
     path('addresses/<int:pk>/', address),
+    path('login/', login),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
